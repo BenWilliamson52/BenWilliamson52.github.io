@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "three": "^0.173.0"
+  },
+  "devDependencies": {
+    "@parcel/config-default": "^2.13.3",
+    "parcel-reporter-static-files-copy": "^1.5.3"
+  },
+  "staticFiles": {
+    "staticOutPath": "assets"
+  }
+  
+}
