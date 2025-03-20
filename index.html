@@ -1,308 +1,176 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Portfolio - Ben Williamson</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Ben Williamson</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+        @font-face {
+            font-family: 'cher';
+            src: url('font/Chernobyl.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
-				<!-- Wrapper -->
-					<div id="wrapper">
+        body {
+            background: #111;
+            background-image: url("images/bg1.png");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: cher;
+        }
 
-						<!-- INTRO - About me -->
-							<section class="panel banner right">
-								<div class="content color0 span-3-75">
-									<h1 class="major">Hello, my name is<br />
-									Ben Williamson</h1>
-									<p>Currently working as a <strong>Product Designer and 3D Modeller</strong><br> I am College graduate with a bachelor's degree in <strong>Interactive digital art and design.</strong><br>My Ambition is to find a <strong>job  and team</strong> I can enjoy to working with.<br></p>
-									<ul class="actions">
-										<li><a href="#first" class="button primary color1 circle icon solid fa-angle-right">Next</a></li>
-									</ul>
-								</div>
-								<div class="image filtered span-1-75" data-position="25% 25%">
-									<img src="images/me.jpg" alt="" />
-								</div>
-							</section>
+        .gallery {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            font-family: cher;
+        }
 
-							<!-- Contact me -->
+        .image-container {
+            position: relative;
+            width: 90px;
+            height: 500px;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            border-radius: 10px;
+            cursor: pointer;
+            transform-origin: center;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.1);
+            font-family: cher;
+        }
 
-							<section class="panel color4-alt">
-								<div class="intro color4">
-									<h1 class="major">Contact Me</h1>
-									<a id="first"></a>																											
-									<p><strong> Email : </strong> benwilliamson52@gmail.com <br> 
-									<strong> Phone : </strong> 089 414 7097<br>
-									<strong> Instagram:</strong> <a href="https://www.instagram.com/bennie_asce/">Photography and Editing</a><br>
-									<strong>Link Tree : </strong> <a href="https://linktr.ee/Bennie_Williamson">All Of My Links</a><br>
-									<strong> LinkedIn:</strong> <a href="https://www.linkedin.com/in/ben-williamson-3d/b">Profile Link</a></p><br>
-									
+        /* Base Image */
+        .image-container img.base {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
 
-									<ul class="actions">
-										<li><a href="slider.html" class="button primary color2">Current Project</a></li>
-										
-									</ul>
-									<ul class="actions">
-										<li><a href="#renders" class="button primary color2">Jump to renders</a></li>
-										
-									</ul>
-									<ul class="actions">
-										<li><a href="#videos" class="button primary color2">Jump to Videos</a></li>
-										
-									</ul>						
-									<p></p>
-									<p></p>
-								</div>
-								
-							</section>
+        /* Overlay Image */
+        .image-container img.overlay {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: opacity 0.3s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
 
-							
-							<!-- Skills -->
+        /* Text inside the container */
+        .image-container .text {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 12px 15px;
+            font-size: 22px;
+            font-weight: bold;
+            font-style: italic;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            white-space: nowrap;
+            z-index: 3;
+            font-family: cher;
+        }
 
-							<section class="panel color2-alt">
-								
-								<div class="inner columns aligned">
-								
-									
-									<div class="span-1-25">
-									
-										<h3 class="major">Software</h3>
-										<ul class="alt">
-											<li>Maya</li>
-											<li>Blender</li>
-											<li>Solidworks</li>
-											<li>Keyshot</li>
-											<li>Photoshop</li>
-											<li>Premiere Pro</li>
-											<li>Unity</li>
-											<li>Unreal Engine</li>
-										</ul>
+        /* Expand and show text on hover */
+        .image-container:hover {
+            width: 500px;
+            transform: perspective(400px) scale(1.05);
+        }
 
-									</div>
-									<div class="span-1-5">										
-										<h3 class="major">Coding Languages</h3>
-										<ul class="alt">
-											<li>HTML</li>
-											<li>CSS</li>
-											<li>Javascript</li>
-											<li>C#</li>
-											<li>C++</li>
-											<li>Python</li>
-											
-										</ul>										
-									</div>
-									
-									<!-- Talents -->
+        /* Hide overlay image and show text */
+        .image-container:hover img.overlay {
+            opacity: 0;
+        }
 
-									<div class="span-3">
-										<h3 class="major">Talents</h3>										
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<th>&nbsp;</th>
-														
-												</thead>
-												<tbody>
-													<tr>
-														
-														<td>3D modelling for Environments, Props & Products</td>
-														
-													</tr>
-													<tr>
-														
-														<td>Product Design and Development </td>
-														
-													</tr>
-													<tr>
-														
-														<td>Graphic Art for Concepts, Illustration, Print, infographics & Social Media</td>
-														
-													</tr>
-													<tr>
-														
-														<td>UI - UX Design </td>
-														
-													</tr>
-													<tr>
-														
-														<td>Web Developer / Designer </td>
-														
-													</tr>
-												</tbody>
-												<tfoot>
-													<tr>
-														<td colspan="2"></td>
-														
-													</tr>
-												</tfoot>
-											</table>
-										</div>
-									</div>
-									
-									<!-- XP - stuff  -->
+        .image-container:hover .text {
+            opacity: 1;
+        }
 
-									<div class="span-3">
-										<h3 class="major">Experience</h3>										
-										<div class="table-wrapper">
-											<table>
-												<thead>
-													<tr>
-														<th>Place</th>
-														<th>Description</th>
-														<th>Time</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr>
-														<td>DesignShift</td>
-														<td>Product Desinger and Developer</td>
-														<td>Present</td>
-													</tr>
-													<tr>
-														<td>SETU Carlow</td>
-														<td>Website Developer</td>
-														<td>6 months</td>
-													</tr>
-													<tr>
-														<td>Centra</td>
-														<td>Store Clerk</td>
-														<td>6 years</td>
-													</tr>
-													<tr>
-														<td>Freelance</td>
-														<td>Commissioned 3D models, Art prints and Advertisments</td>
-														<td>Present</td>
-													</tr>													
-												</tbody>
-											
-											</table>
-										</div>
-									</div>							
-							</section>
+        @media (max-width: 900px) {
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
 
-						<!-- Education small -->
+            .image-container {
+                width: 600px;
+            }
 
-						<section class="panel">
-							<div class="intro color2">
-								<div class="span-1.5">
-									<h3 class="major">Education</h3>
-									<table class="alt">
-										<thead>
-											<tr>
-												<th>Level</th>
-												<th>Name</th>
-											
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Level 8 bachelors</td>
-												<td>Interactive Digital Art & Design</td>
-											
-											</tr>
-											<tr>
-												<td>Level 5 <br>PLC</td>
-												<td>Games & Apps Development</td>
-											
-											</tr>
-											<tr>
-												<td>Leaving Cert</td>
-												<td>Bunclody Vocational College</td>
-											
-											</tr>																						
-										</tbody>									
-									</table>								
-								</div>
-								
-							</div>
-							
-						</section>
-																						
-						<!-- Renders -->
-							<section class="panel">
-								<div class="intro color4">
-									<h2 class="major">Renders</h2>									
-									<p>The following are a selection of still renders that were created in <strong>Maya and Blender</strong></p><br>
-									<p><strong>NOTE - </strong> my work as a product designer is currently confidential but renders will slowly be added as products are released</p><br>
-									<a href="https://www.artstation.com/benniew3">Click here to View ALL of my renders</a>
-									<a id=renders></a>								
-								</div>
-								<div class="gallery">
-									<div class="group span-3">										
-										<a href="images/renders/cleave.png" class="image filtered span-1-5" data-position="center"><img src="images/renders/cleave.png" alt="" /></a>
-										<a href="images/renders/greatsword.png" class="image filtered span-1-5" data-position="bottom"><img src="images/renders/greatsword.png" alt="" /></a>
-										<a href="images/renders/godaxe.png" class="image filtered span-3" data-position="bottom"><img src="images/renders/godaxe.png" alt="" /></a>
-									</div>
-									<div class="group span-3">
-										<a href="images/renders/wizard-room.jpg" class="image filtered span-3" data-position="bottom"><img src="images/renders/wizard-room.jpg" alt="" /></a>
-										<a href="images/renders/dyna-top.jpg" class="image filtered span-1-5" data-position="center"><img src="images/renders/dyna-top.jpg" alt="" /></a>
-										<a href="images/renders/poison-book-bigger.jpg" class="image filtered span-1-5" data-position="bottom"><img src="images/renders/poison-book-bigger.jpg" alt="" /></a>
-									</div>
-									<a href="images/renders/hand.jpg" class="image filtered span-2-5" data-position="top"><img src="images/renders/hand.jpg" alt="" /></a>
-									<div class="group span-4-5">
-										<a href="images/renders/carno-forest.jpg" class="image filtered span-3" data-position="top"><img src="images/renders/carno-forest.jpg" alt="" /></a>
-										<a href="images/renders/revy-back.jpg" class="image filtered span-1-5" data-position="center"><img src="images/renders/revy-front.jpg" alt="" /></a>
-										<a href="images/renders/desert-tower.jpg" class="image filtered span-1-5" data-position="bottom"><img src="images/renders/desert-tower.jpg" alt="" /></a>
-										<a href="images/renders/desert-house.jpg" class="image filtered span-3" data-position="top"><img src="images/renders/desert-house.jpg" alt="" /></a>
-									</div>
-									<a href="images/renders/building-yellow.jpg" class="image filtered span-2-5" data-position="right"><img src="images/renders/building-yellow.jpg" alt="" /></a>
-									<div class="group span-4-5">
-										<a href="images/renders/chamber-open.jpg" class="image filtered span-3" data-position="top"><img src="images/renders/front-side.jpg" alt="" /></a>
-										<a href="images/renders/machine.jpg" class="image filtered span-1-5" data-position="center"><img src="images/renders/machine.jpg" alt="" /></a>
-										<a href="images/renders/skull.jpg" class="image filtered span-1-5" data-position="bottom"><img src="images/renders/skull.jpg" alt="" /></a>
-										<a href="images/renders/shack-left.jpg" class="image filtered span-3" data-position="top"><img src="images/renders/shack-left.jpg" alt="" /></a>
-									</div>
-									<a href="images/renders/tower.jpg" class="image filtered span-2-5" data-position="right"><img src="images/renders/tower.jpg" alt="" /></a>
-									
-								</div>
-							</section>
+            .image-container:hover {
+                width: 950px;
+            }
+        }
+    </style>
+</head>
+<body>
 
-						<!-- Videos -->
-							<section class="panel color4-alt">
-								<div class="intro color4">
-									<h2 class="major">Video Renders</h2>
-									<a id=videos></a>
-									<p>The following are short videos created in blender</p>
-								</div>
-								<div class="gallery">
-									<div class="group span-3">
-										<video controls autoplay loop src="vids/water-spooky.mp4" class="image filtered span-3" data-position="right"></video>
-										<video controls autoplay loop src="vids/cave-vhs.mp4" class="image filtered span-3" data-position="right"></video>
-									</div>								
-									<div class="group span-3">
-										<video controls autoplay loop src="vids/ocean-small.mp4" class="image filtered span-3" data-position="bottom"></video>
-										<video controls autoplay loop src="vids/ripples-small.mp4" class="image filtered span-3" data-position="bottom"></video>
-									</div>
-									<div class="group span-3">
-										<video controls autoplay loop src="vids/fire-small.mp4" class="image filtered span-3" data-position="bottom"></video>
-										<video controls autoplay loop src="vids/grass-small.mp4" class="image filtered span-3" data-position="bottom"></video>											
-									</div>
-									
-										
-								</div>
-							</section> <!-- to add mkore videos, add another div named group span-3 and make sure to fill a gap in between every 2 vids with an image like on line 228 -->
+    <div class="gallery">
+        <a href="about/index.html">
+        <div class="image-container">
+            <img src="images/mebw.png" alt="Nature" class="base">
+            <img src="images/1.png" alt="Overlay" class="overlay">
+            <div class="text">About Me</div>
+        </div>
+        </a>
 
-						<!-- Extra -->
-							<section class="panel color2-alt">
-								<div class="intro color2">
-									<h2 class="major">Thank You </h2>
-									<p>Thanks for viewing, I'm always open for business opportunities</p>
-								</div>
-								
-									
-							</section>						
-					</div>
-			</div>
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/main.js"></script>
+        <a href="Graphic.html">
+        <div class="image-container">
+            <img src="images/design-thumb.png" alt="City" class="base">
+            <img src="images/2.png" alt="Overlay" class="overlay">
+            <div class="text">Graphic Design</div>
+        </div>
+        </a>
 
-	</body>
+        <a href="3D.html">
+        <div class="image-container">
+            <img src="images/3d.png" alt="Ocean" class="base">
+            <img src="images/3.png" alt="Overlay" class="overlay">
+            <div class="text">3D Work</div>
+        </div>
+        </a>
+
+        <a href="ui.html">
+        <div class="image-container">
+            <img src="images/4.png" alt="Forest" class="base">
+            <img src="images/4.png" alt="Overlay" class="overlay">
+            <div class="text">Website & UI</div>
+        </div>
+        </a>
+
+        <a href="games.html">
+        <div class="image-container">
+            <img src="images/5.png" alt="Mountain" class="base">
+            <img src="images/5.png" alt="Overlay" class="overlay">
+            <div class="text">Games</div>
+        </div>
+        </a>
+    </div>
+
+</body>
 </html>
